@@ -37,19 +37,40 @@ it was also decided to store list of alternatives that need printing in an `Arra
 
 ### Stacscheck Output
 
-![](/cs/home/eo32/Documents/CS1003/Practicals/W05Practical/testing/stacscheck/stacscheck.png)
+![](testing/stacscheck/stacscheck.png)
 
 ## Evaluation
 
+The specification required that a program which would take in two command line arguments:
 
+1. The location of the dictionary file. If the file was unable to found then an error message would be produced.  Through testing it can be seen that the program is able to produce this output.
+
+   ```markdown
+   File not found: [fileName] (No such file or directory)
+   Invalid dictionary, aborting.
+   ```
+
+2. The string being processed.
+
+If these arguments are not received that an appropriate error message be produced and sent to the user. 
+
+1. As can be seen from testing when no arguments or a greater amount that are required are entered the error message. Through testing it was able to be seen that the program is able to produce this error message.
+
+   ```markdown
+   Expected 2 command line arguments, but got [args.length].
+   Please provide the path to the dictionary file as the first argument and a sentence as the second argument.
+   ```
+
+As can be seen from testing the program is able to successfully delete all the constants in the string of input produced and delete them and then determine if an alternative for that word exists in the dictionary of words and also then output the number and all these alternatives to the terminal.
 
 ## Conclusion
 
-
+In this practical a program which was able to delete consonants and compare them to words in the dictionary was produced.
 
 ### Difficulties
 
-* lowercase before comparison
-* removing special special characters from text
+* It was found when a word was compared to those in the dictionary some would not compare even though they were present in the dictionary. This was found to be cause by the capitalisation of the words in the dictionary and the capitalisation of the input. So before comparison both were made lowercase to allow all the words which exists in the dictionary to be found.
+
+* It was found when a words which were followed with punctuation were compared to those in the dictionary some would not be found to be in the dictionary. So to fix this error all punctuation had to be removed before the comparison.
 
 ### Given More Time
