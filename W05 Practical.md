@@ -93,6 +93,8 @@ For every word in the dictionary if it matches the word pattern then it is selec
 
 To make the program run faster the since the file is stream read and each process happens with respect to each line in the dictionary.
 
+A third argument of `-A` is now used to add consonants if the user wishes.
+
 ## Testing
 
 ### Initial Specification
