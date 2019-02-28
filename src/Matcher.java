@@ -38,7 +38,8 @@ public class Matcher {
       String line;
       while ((line = bufferedReader.readLine()) != null) {
         for (int i = 0; i < this.text.length; i++){
-          if (line.toLowerCase().matches(regexPatterns.get(i))){
+          //checks matches pattern but is not the same
+          if (!line.toLowerCase().equals(text[i])&&line.toLowerCase().matches(regexPatterns.get(i))){
             for (int j = 0; j < this.text.length; j++) {
               String newAlternative = "";
               if (i == j){
@@ -81,7 +82,7 @@ public class Matcher {
   * @return the regex pattern to find possible consonant insertions.
   */
   public String createPattern(String word) {
-    
+
     //formats the word
     String fWord = word.toLowerCase().replaceAll("[\\W]", "");
     String regexPattern = "";
