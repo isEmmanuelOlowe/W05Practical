@@ -52,14 +52,20 @@ public class Parser {
   /**
   * Finds if a specific character is a consontant.
   *
+  * @param character the character being checked
+  * @param isVowel determines if finding vowels or consonants
   * @return true is a consontant is found.
   */
-  private boolean isConsonant(char character) {
+  private boolean letterType(char character, boolean isVowel) {
 
     //lowest case before comparison
     String sCharacter = Character.toString(character).toLowerCase();
-    //checks if it is consonant using REGEX.
-    return sCharacter.matches("[b-df-hj-np-tv-z]");
+    if (isVowel){
+      return sCharacter.matches("[aeiou]");
+    }
+    else {
+      return sCharacter.matches("[b-df-hj-np-tv-z]");
+    }
   }
 
   /**
@@ -78,14 +84,15 @@ public class Parser {
   /**
   * Determines which words have avaiable alternatives in the dictionary.
   *
+  * @param forVowels determing if you are finding vowels or consonants
   * @param words the words which are contained in the sentence
   */
-  public void findLostConsonances(String[] words) {
+  public void findLostLetters(String[] words, boolean isVowel) {
 
     for (int i = 0; i < words.length; i++) {
       String word = words[i];
       for (int j = 0; j < word.length(); j++) {
-        if (this.isConsonant(word.charAt(j))) {
+        if (this.letterType(word.charAt(j), isVowel)) {
           //used to delete chars at specific indexs
           StringBuilder builder = new StringBuilder(word);
           String lostCon = builder.deleteCharAt(j).toString();
