@@ -26,7 +26,16 @@ public class LostConsonants {
       }
 
     }
-    else {
+    else if (args.length == 3 && args[2].equals("-A")) {
+
+      String dictionaryLocation = args[0];
+      String text = args[1];
+      
+      Matcher matcher = new Matcher(text);
+      matcher.loadText(dictionaryLocation);
+      matcher.printAlternatives();
+    }
+     else {
       System.out.println("Expected 2 or 3 command line arguments, but got " + args.length + ".");
       System.out.println("Please provide the path to the dictionary file as the first"
       + " argument and a sentence as the second argument.");
