@@ -30,7 +30,7 @@ public class LostConsonants {
 
       String dictionaryLocation = args[0];
       String text = args[1];
-      
+
       Matcher matcher = new Matcher(text);
       matcher.loadText(dictionaryLocation);
       matcher.printAlternatives();
@@ -40,6 +40,7 @@ public class LostConsonants {
       System.out.println("Please provide the path to the dictionary file as the first"
       + " argument and a sentence as the second argument.");
       System.out.println("Add '-v' to have process ran for vowels");
+      System.out.println("Add '-A' to have possible adding Consonants");
     }
   }
 }
