@@ -2,6 +2,8 @@
 
 ## Overview
 
+### Initial Practical
+
 The specification required that a program which takes in two arguments.
 
 * `Argument 1`: The location of the diction of words.
@@ -9,7 +11,7 @@ The specification required that a program which takes in two arguments.
 
 The program then removes 1 consonant from each word in the string of text and checks that that string of that had the consonant removed is contained in the dictionary of words and if it is then it adds it to the list of alternatives for that word. The program then outputs all the alternatives for the words to the 
 
-### Problem Decomposition
+#### Problem Decomposition
 
 * Read the dictionary file
 * Make the the dictionary of words into a set in which comparisons can be made to.
@@ -17,6 +19,14 @@ The program then removes 1 consonant from each word in the string of text and ch
 * Find consonants in the text.
 * Delete consonants and compare that word to words in the dictionary.
 * It has also been noted words in the dictionary vary in capitalisation so for valid comparison words in the dictionary and string will never to be lowercase before comparison.
+
+### Extension 1: Introduction of same process for vowels
+
+The extension asks that a second version of the program be produced which lists lost vowel alternatives.
+
+#### Assumptions
+
+* second version indicates it has alternative functionality to the original so this is not an additive incremental addition of functionality but alteration of a new program to do the exact same process for vowels.
 
 ## Design
 
@@ -33,7 +43,52 @@ It was decided to made the dictionary into a `HashSet` as:
 
 it was also decided to store list of alternatives that need printing in an `ArrayList` instead of directly printing them when they are found. This is because I could the get the length of the `ArrayList` at the end on finding Consonants is ran to determine how many alternatives were found.
 
+### Extension: vowel implementation
+
+The `isConsonant` method replaced with a `isVowel` method which then returned true is a vowel was found.
+
 ## Testing
+
+### Test Case 1: Incorrect Arguments supplied
+
+Here it is tested that the program properly reacts to the incorrect number of arguments supplied
+
+##### Expected Output
+
+It is expected that the program outputs an error message along with the number of arguments supplied.
+
+##### Actual Output
+
+![](testing/Test Case 1/no arguments.png)
+
+#### Test Case 2: Incorrect file Path
+
+Here is it is test that the program correctly reacts to when a file which does not exist is made into dictionary for the program.
+
+##### Expected Output
+
+It is expected that the program outputs an error message along with incorrect path that was let in
+
+##### Actual Output
+
+![](/cs/home/eo32/Documents/CS1003/Practicals/W05Practical/testing/Test Case 2/no file.png)
+
+#### Test Case 3: Correct Functionality Achieved
+
+Here it is tested the program gives the correct output given valid data.
+
+##### Expected Output
+
+I made a new file containing the 5  possible variations of words produced when consonants are removed and one which should never be found since it not produced when consonant is removed.
+
+1. Expect all 6 alternatives since the word `apple chair` has been entered. 
+2. No alternatives should be found as none of these variations exist in `nope`.
+3. Expect all 6 alternatives since the program cares not about punctuation and capitalisation.
+4. Expected 3 alternatives as `aple` can be produce for removal of either p and `appe` from the removal of an L.
+
+##### Actual Output
+
+![](/cs/home/eo32/Documents/CS1003/Practicals/W05Practical/testing/Test Case 3/Apple Chair Example.png)
 
 ### Stacscheck Output
 
@@ -65,7 +120,7 @@ As can be seen from testing the program is able to successfully delete all the c
 
 ## Conclusion
 
-In this practical a program which was able to delete consonants and compare them to words in the dictionary was produced.
+In this practical a program which was able to delete consonants and compare them to words in the dictionary was produced. 
 
 ### Difficulties
 
